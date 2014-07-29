@@ -1,4 +1,12 @@
-This is your new Play application
+Live Chat
 =================================
 
-This file will be packaged with your application, when using `activator dist`.
+The chat where you can see actial typing process instead of "%username% is typing".
+
+
+Using
+----------------------
+- Play Framework
+- Scala
+- CoffeeScript
+- Websockets
