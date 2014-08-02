@@ -12,6 +12,8 @@
     <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type='text/javascript' src="//www.bitstorm.org/jquery/color-animation/jquery.animate-colors-min.js"></script>
 
+    <!-- vk -->
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
 
     <script type='text/javascript' src='@routes.Assets.at("lib/flot/jquery.flot.js")'></script>
     <script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
@@ -39,6 +41,12 @@
             <!--button type="submit" class="btn">go!</button-->
         </form>
     </div>
+    
+    <!-- vk -->
+    <div id="vk_poll"></div>
+    <script type="text/javascript">
+    VK.Widgets.Poll("vk_poll", {width: 300}, "143987722_6a92457559c37857f4");
+    </script>
 </div>
 </body>
 </html>
