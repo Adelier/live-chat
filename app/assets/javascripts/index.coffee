@@ -101,7 +101,10 @@ getCookie = (cname) ->
     return ""
 
 setCookie = (cname, cvalue, exdays) ->
-  d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  expires = "expires="+d.toGMTString();
-  document.cookie = cname + "=" + cvalue;
+  if (exdays) 
+    date = new Date();
+    date.setTime(date.getTime()+(exdays*24*60*60*1000));
+    expires = "; expires="+date.toGMTString();
+  else
+    expires = ""
+  document.cookie = cname + "=" + cvalue + expires+"; path=/";
