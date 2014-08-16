@@ -41,8 +41,10 @@ object Application extends Controller {
   }
 
   // JSON WebSocket
-  def ws:WebSocket[JsValue, JsValue] = WebSocket.acceptWithActor[JsValue, JsValue] { implicit request => out =>
-    ChatSocketActor.props(out)
+  def ws:WebSocket[JsValue, JsValue] = WebSocket.acceptWithActor[JsValue, JsValue] { implicit request => out =>{
+      Logger.info(s"WebSocket request (remote ip=${request.remoteAddress})")
+      ChatSocketActor.props(out)
+    }
   }
 
 }
@@ -90,8 +92,8 @@ class ChatSocketActor (out: ActorRef) extends Actor {
         }
       }
       case "complete" => {
-        Logger.info("FINE: complete request: " + json)
-        if (room == null) Logger.info("NO GOOD: no room")
+        Logger.debug("complete request: " + json)
+        if (room == null) Logger.warn("no room")
         else this.room.tell(CompleteMessage(
           (json \ "value").asOpt[String].getOrElse("error"),
           (json \ "message_id").asOpt[String].getOrElse("noid"),
