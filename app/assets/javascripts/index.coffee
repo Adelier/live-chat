@@ -61,7 +61,7 @@ mess_fullid = (author, message_id) -> "message_" + author + message_id
 printMessageLine = (message) ->
   m_fullid = mess_fullid(message.author, message.message_id)
   # temp
-  document.title = "LC " + message.author + ":" + message.message
+  document.title = "RC " + message.author + ":" + message.message
 
   if $("#" + m_fullid).length == 0
     # it doesn't exist
