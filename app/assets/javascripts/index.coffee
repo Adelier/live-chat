@@ -15,7 +15,7 @@ $ ->
     $("#enterroomusernametext").val(nm)
     tryConnect("all", nm)
     setInterval ->
-        ws.send(JSON.stringify({ type: "ping"}))}
+        ws.send(JSON.stringify({ type: "ping"}))
       , 10000
 
   tryConnect = (sRoom_id, sName) ->
