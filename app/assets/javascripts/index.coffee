@@ -14,9 +14,9 @@ $ ->
     nm = "person" + Math.floor(Math.random()*1000) if nm == ""
     $("#enterroomusernametext").val(nm)
     tryConnect("all", nm)
-    setInterval(function(){ws.send(JSON.stringify({
-            type: "ping"
-        }))}, 10000);
+    setInterval ->
+        ws.send(JSON.stringify({ type: "ping"}))}
+      , 10000
 
   tryConnect = (sRoom_id, sName) ->
     ws.send(JSON.stringify({
