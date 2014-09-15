@@ -99,6 +99,7 @@ class ChatSocketActor (out: ActorRef) extends Actor {
           (json \ "message_id").asOpt[String].getOrElse("noid"),
           name), out)
       }
+      case "ping" => // prevent timeout disconnection
       case _ => Logger.info("NOT FINE: strange request")
     }
   }
